@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Oral Presentation Quest: From Awkward to Awesome!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff1c9;--ink:#16161d;--card:#ffffff;--soft:#f6efd8;--muted:#4b4b5a;--line:#16161d;--on:#16161d;
+  --pink:#ff5d8f;--yellow:#ffd23f;--teal:#35c2d4;--purple:#b98cff;--green:#5fd99a;--orange:#ff9f43;
+  --good:#b9f3d0;--bad:#ffc9d6;--think:#ffd23f;--collab:#35c2d4;--reflect:#b98cff;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#171629;--ink:#f6f3ff;--card:#25233f;--soft:#312e52;--muted:#d0ccea;--line:#f6f3ff}
+}
+:root[data-theme="dark"]{--bg:#171629;--ink:#f6f3ff;--card:#25233f;--soft:#312e52;--muted:#d0ccea;--line:#f6f3ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}
+body{background-color:var(--bg);color:var(--ink);font:17px/1.55 'Nunito','Segoe UI',system-ui,sans-serif;min-height:100vh;
+  background-image:radial-gradient(rgba(127,127,127,.28) 1.6px,transparent 2.2px);background-size:22px 22px}
+h1,h2,h3{font-family:'Bangers','Impact','Comic Sans MS',cursive;font-weight:400;letter-spacing:.04em;line-height:1.1;margin:0 0 .45em}
+h1{font-size:clamp(2rem,6vw,3.4rem)}h2{font-size:clamp(1.5rem,4vw,2.1rem)}h3{font-size:1.3rem}
+p{margin:.5em 0}
+.wrap{max-width:1020px;margin:0 auto;padding:12px 14px 30px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:3px solid var(--line)}
+.top .in{max-width:1020px;margin:0 auto;padding:8px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font-family:'Bangers','Impact',cursive;font-size:1.25rem;letter-spacing:.05em;flex:1 1 220px}
+.pts{font-weight:800;background:var(--yellow);color:var(--on);border:3px solid var(--line);border-radius:99px;padding:2px 12px}
+.bar{height:18px;border:3px solid var(--line);border-radius:99px;background:var(--card);overflow:hidden;flex:1 1 160px;min-width:120px}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--teal));transition:width .6s}
+.card{background:var(--card);border:3px solid var(--line);border-radius:14px;box-shadow:5px 5px 0 var(--line);padding:16px;margin:14px 0}
+.btn{font:inherit;font-weight:800;border:3px solid var(--line);background:var(--yellow);color:var(--on);border-radius:12px;padding:9px 16px;box-shadow:3px 3px 0 var(--line);cursor:pointer;min-height:44px}
+.btn:hover{transform:translate(-1px,-1px)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
+.btn.alt{background:var(--teal)}.btn.go{background:var(--green)}.btn.pk{background:var(--pink)}
+.btn.ghost{background:var(--card);color:var(--ink)}
+.btn.sm{padding:4px 10px;min-height:34px;font-size:.9rem;box-shadow:2px 2px 0 var(--line)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sp{justify-content:space-between}
+.muted{color:var(--muted)}
+.tag{display:inline-block;font-weight:800;font-size:.85rem;border:2px solid var(--line);border-radius:99px;padding:1px 10px;color:var(--on);background:var(--soft);margin:0 4px 4px 0}
+.tag.think{background:var(--think)}.tag.collab{background:var(--collab)}.tag.reflect{background:var(--reflect)}.tag.sim{background:var(--orange)}.tag.fict{background:var(--pink)}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--yellow);color:var(--on)}
+.hero .mascot{font-size:4.5rem;animation:wob 3s ease-in-out infinite}
+.hero p{color:var(--on)}
+@keyframes wob{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.seq{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-family:'Bangers','Impact',cursive;font-size:1.2rem;letter-spacing:.05em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px;margin:10px 0 18px}
+.node{font:inherit;text-align:left;background:var(--card);color:var(--ink);border:3px solid var(--line);border-radius:14px;box-shadow:4px 4px 0 var(--line);padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;position:relative}
+.node:hover:not([disabled]){transform:translate(-2px,-2px)}
+.node .n{font-family:'Bangers','Impact',cursive;font-size:1.1rem;background:var(--yellow);color:var(--on);border:3px solid var(--line);border-radius:50%;width:38px;height:38px;display:grid;place-items:center}
+.node .ic{position:absolute;right:10px;top:6px;font-size:2rem}
+.node b{font-size:1.05rem;padding-right:34px}
+.node[disabled]{opacity:.55;cursor:not-allowed;filter:grayscale(.9)}
+.node.done{background:var(--good);color:var(--on)}.node.done .muted{color:#2c4a3a}
+.node.next{outline:4px dashed var(--pink);outline-offset:3px}
+.node.think .n{background:var(--think)}.node.collab .n{background:var(--collab)}.node.reflect .n{background:var(--reflect)}
+.node.boss{background:var(--pink);color:var(--on)}.node.boss .muted{color:var(--on)}
+.part{margin:22px 0 4px}
+.steps{display:flex;gap:6px;margin:6px 0 10px}
+.steps i{flex:1;height:10px;border:2px solid var(--line);border-radius:6px;background:var(--card)}
+.steps i.on{background:var(--teal)}.steps i.cur{background:var(--yellow)}
+.q{font-weight:800;font-size:1.1rem}
+.opts{display:grid;gap:10px;margin:12px 0}
+.opt{font:inherit;text-align:left;display:flex;gap:10px;align-items:flex-start;width:100%;background:var(--card);color:var(--ink);border:3px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;box-shadow:3px 3px 0 var(--line)}
+.opt:hover:not([disabled]){background:var(--soft)}
+.opt .L{flex:none;width:30px;height:30px;border:3px solid var(--line);border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--yellow);color:var(--on)}
+.opt.good{background:var(--good);color:var(--on)}.opt.bad{background:var(--bad);color:var(--on)}
+.opt.sel{background:var(--teal);color:var(--on)}
+.opt[disabled]{cursor:default}
+.fb{border:3px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;background:var(--soft);color:var(--ink)}
+.fb.ok{background:var(--good);color:var(--on)}.fb.no{background:var(--bad);color:var(--on)}
+.fb .tip,.fix{display:block;margin-top:6px;font-weight:700}
+.chip{font:inherit;font-weight:700;font-size:.92rem;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:3px 11px;cursor:pointer;min-height:34px}
+.chip.good{background:var(--good);color:var(--on)}.chip.bad{background:var(--bad);color:var(--on)}
+.chip[disabled]{cursor:default;opacity:.8}
+.cats,.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.crow{border-top:2px dashed var(--line);padding:8px 0}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--card);border:3px solid var(--line);border-radius:10px;padding:8px 10px}
+textarea{min-height:76px;resize:vertical}
+textarea[readonly]{background:var(--soft)}
+label.f{display:block;font-weight:800;margin-top:12px}
+.hint{font-weight:400;color:var(--muted);font-size:.92rem;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col{border:3px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--soft)}
+.col h3{margin-bottom:.2em}
+.col.new{background:var(--good);color:var(--on)}.col.new h3{color:var(--on)}
+.ban{border:3px solid var(--line);border-radius:12px;padding:8px 12px;margin:10px 0;font-weight:700;color:var(--on)}
+.ban.think{background:var(--think)}.ban.sim{background:var(--orange)}.ban.fict{background:#ffd0e0}.ban.info{background:var(--teal)}
+.ban.reflect{background:var(--reflect)}
+/* stage / hotspots */
+.hotgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:12px 0}
+.hot{font:inherit;text-align:left;background:#fff;color:#16161d;border:3px solid var(--line);border-radius:12px;box-shadow:3px 3px 0 var(--line);padding:8px;cursor:pointer;position:relative;min-height:110px}
+.hot.found{background:var(--good)}
+.hot .chk{position:absolute;right:6px;top:4px;font-weight:800;font-size:.8rem;background:var(--yellow);border:2px solid #16161d;border-radius:99px;padding:0 8px;color:#16161d}
+.hot.found .chk{background:var(--green)}
+.mini{font-size:.78rem;line-height:1.25;margin-top:16px}
+.mini.tiny{font-size:.5rem;line-height:1.2}
+.bubble{background:#fff;border:3px solid #16161d;border-radius:14px;padding:6px 10px;margin-top:18px;font-weight:700;color:#16161d}
+.big{font-size:2.2rem;line-height:1;display:block;margin-top:14px}
+/* slides */
+.slides{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.slide{background:#fff;color:#16161d;border:3px solid var(--line);border-radius:8px;padding:8px 10px;aspect-ratio:16/10;overflow:hidden;font-size:12px;line-height:1.3;position:relative}
+.slide .lab{position:absolute;right:6px;top:4px;background:var(--yellow);border:2px solid #16161d;border-radius:99px;padding:0 8px;font-weight:800}
+.slide h4{margin:0 0 4px;font-size:1.15em}
+.slide ul{margin:2px 0;padding-left:16px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:70px;border-bottom:2px solid #16161d}
+.bars i{flex:1;display:block}
+/* ordering */
+ol.ord{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+li.o{display:flex;gap:8px;align-items:center;background:var(--card);border:3px solid var(--line);border-radius:12px;padding:6px 10px;cursor:grab}
+li.o.rm{opacity:.55;text-decoration:line-through;background:var(--soft)}
+li.o .num{flex:none;width:30px;height:30px;border:3px solid var(--line);border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--yellow);color:var(--on)}
+li.o .t{flex:1}
+.model{display:grid;gap:6px;margin:8px 0}
+.model div{border:2px solid var(--line);border-radius:10px;padding:6px 10px;background:var(--card)}
+/* chat */
+.chat{display:grid;gap:10px;margin:10px 0}
+.me,.ai{border:3px solid var(--line);border-radius:14px;padding:8px 12px;max-width:92%}
+.me{background:var(--yellow);color:var(--on);justify-self:end}
+.ai{background:var(--card);color:var(--ink);justify-self:start}
+.ai .who{font-weight:800;font-size:.85rem}
+.ai ul{margin:4px 0;padding-left:20px}
+details{border:3px solid var(--line);border-radius:12px;padding:6px 12px;background:var(--soft);margin:10px 0}
+summary{cursor:pointer;font-weight:800}
+.badge{display:grid;gap:2px;justify-items:center;text-align:center;border:3px solid var(--line);border-radius:14px;padding:10px;background:var(--card);box-shadow:3px 3px 0 var(--line)}
+.badge .e{font-size:2.4rem}
+.badge.off{opacity:.4;filter:grayscale(1)}
+.pop{animation:pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{0%{transform:scale(.2) rotate(-20deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.cl h3{margin-top:.8em}
+.cl label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.cl input{width:24px;height:24px;flex:none;margin-top:2px;accent-color:#2f9e68}
+table.cmp{width:100%;border-collapse:collapse;margin:8px 0}
+.cmp th,.cmp td{border:3px solid var(--line);padding:8px;vertical-align:top;text-align:left}
+.cmp th{background:var(--yellow);color:var(--on)}
+.cmp td.n{background:var(--good);color:var(--on)}
+.cmp td.o{background:var(--bad);color:var(--on)}
+.tblwrap{overflow-x:auto}
+footer{max-width:1020px;margin:20px auto 0;padding:12px 14px 30px;text-align:center;font-weight:800;border-top:3px solid var(--line)}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-weight:800;border-radius:99px;padding:8px 18px;z-index:20;max-width:90vw;text-align:center}
+#toast[hidden]{display:none}
+@media (max-width:640px){
+  .two,.slides{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="top" class="top"></div>
+<main class="wrap" id="app" tabindex="-1"></main>
+<footer>Nannestad High School – Barbara Anna Zielonka</footer>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+/* =========================================================================
+   TEACHER NOTES
+   - All challenge content lives in the data objects below (TOPICS, LEVELS, BOSS, CHECK).
+     Add a step by copying an existing one. Step types: info, hot, choice, order, classify,
+     multi, write, think, ai, compare, reflect, stmt, bossCompare.
+   - Add your own health / life-skills topics to TEACHER_TOPICS.
+   - To use a real, verified source in the oral-citation tasks, fill in TEACHER_SOURCE
+     (author, year, title, finding, kind). Never put in a source you have not checked yourself.
+   - Nothing is sent anywhere. Progress is kept in this browser tab only (sessionStorage).
+   ========================================================================= */
+const TEACHER_TOPICS = [];   // e.g. [{id:'hydration', name:'Hydration and focus'}]
+const TEACHER_SOURCE = null; // e.g. {author:'Surname', year:'2025', title:'...', finding:'...', kind:'a report'}
+
+const FICT = {fictional:true, author:'Lund and Moreno', year:'2024', title:'Evening phone use and bedtime',
+  finding:'a group of 300 students who used their phones in bed for over an hour fell asleep later, on average, than students who did not', kind:'a survey'};
+const SRC = TEACHER_SOURCE ? Object.assign({fictional:false},TEACHER_SOURCE) : FICT;
+const srcSentence = () => `According to ${SRC.author} (${SRC.year}), ${SRC.finding}.`;
+const fictBan = () => SRC.fictional ? `<div class="ban fict"><span class="tag fict">FICTIONAL</span> This source card is made up for practice. It is not real research. In your real presentation, use a source you have checked yourself.</div>` : '';
+const srcCard = () => `<div class="col"><h3>Source card${SRC.fictional?' (fictional practice source)':''}</h3><p><b>Author(s):</b> ${esc(SRC.author)}<br><b>Year:</b> ${esc(SRC.year)}<br><b>Title:</b> ${esc(SRC.title)}<br><b>Type:</b> ${esc(SRC.kind)}<br><b>What it found:</b> ${esc(SRC.finding)}.</p></div>`;
+
+const TOPICS = {
+  sleep:{name:'Sleep and concentration',terms:['teenagers sleep duration and concentration','sleep and attention in adolescents','school start time and sleep'],persp:['A student who has an early bus','A teacher who teaches first period','A health professional','Someone who feels fine on less sleep: do people differ?']},
+  energy:{name:'Energy drinks',terms:['energy drinks teenagers effects','caffeine and concentration in students','energy drink guidelines for young people'],persp:['A student who drinks them before exams','A parent or guardian','A school nurse or health professional','The companies who sell them']},
+  social:{name:'Social media and mental health',terms:['social media use and wellbeing teenagers','screen time and mood adolescents','review of research social media mental health'],persp:['A teenager who uses it daily','A teenager who avoids it','A psychologist or researcher','A parent or teacher']},
+  fitness:{name:'Fitness and wellness trends',terms:['physical activity guidelines teenagers','fitness trends evidence','wellness trends health claims'],persp:['A beginner','A coach or physical education teacher','A doctor or physiotherapist','Someone selling a wellness product']},
+  stress:{name:'Stress and coping strategies',terms:['stress coping strategies students','exam stress and wellbeing','school stress adolescents research'],persp:['A student before exams','A teacher or school counsellor','A health professional','A student who copes in a different way']},
+  nutrition:{name:'Nutrition and healthy habits',terms:['healthy eating guidelines teenagers','breakfast and school performance','nutrition advice national health authority'],persp:['A student with a busy schedule','A school canteen worker','A nutrition expert','Someone with different food traditions or needs']}
+};
+TEACHER_TOPICS.forEach(t=>TOPICS[t.id]={name:t.name,terms:[t.name+' teenagers',t.name+' official guidance',t.name+' review of research'],persp:['A student','A teacher','A health professional','Someone with a different experience']});
+
+const AIP = [
+  {id:'chal',t:'Challenge my initial argument.'},
+  {id:'ques',t:'Ask me questions that help me think more deeply.'},
+  {id:'persp',t:'What perspectives might I be overlooking?'},
+  {id:'evid',t:'Help me identify what evidence I need.'},
+  {id:'terms',t:'Suggest search terms for finding reliable sources.'},
+  {id:'rq',t:'Help me make my research question more focused without changing my topic.'},
+  {id:'struct',t:'Give me feedback on the structure of my presentation.'},
+  {id:'cite',t:'Help me practise introducing a source orally.'},
+  {id:'trap',t:'Write my whole presentation for me.'}
+];
+
+const THINKF = [
+  {id:'know',label:'1. What do I already know about my topic?',hint:'Short is fine. "Not much yet" is an honest start.',chips:['I already know that …','I have heard that …','I am not sure, but I think …']},
+  {id:'rq',label:'2. My research question',hint:'A question your presentation will answer.',chips:['How does … affect … in …?','To what extent …?','Why do … ?']},
+  {id:'q1',label:'3a. Question I need to investigate (1)',hint:'',chips:['What is …?','Who is most affected by …?']},
+  {id:'q2',label:'3b. Question I need to investigate (2)',hint:'',chips:['Why does …?','What do experts say about …?']},
+  {id:'arg',label:'4. My first argument or possible explanation',hint:'It can change later. That is the point!',chips:['I think … because …','A possible explanation is …']},
+  {id:'ev',label:'5. What evidence would help me answer my question?',hint:'Think about types of sources, not just facts.',chips:['I would need a study about …','I would like official guidance from …','An expert on … could explain …']},
+  {id:'pred',label:'6. What do I predict I will discover?',hint:'',chips:['I expect to find that …','I might be surprised if …']}
+];
+
+const ST = {think:'THINK',collab:'COLLABORATE WITH AI',reflect:'REFLECT'};
+
+/* ---------------------------- LEVEL CONTENT ---------------------------- */
+const LEVELS = [
+/* ===== 1 ===== */
+{id:1,icon:'🕵️',title:'The Presentation Disaster',badge:'Presentation Detective',mission:'Diagnose a presentation that has gone terribly wrong.',steps:[
+ {type:'info',title:'Welcome to the Presentation Academy!',html:`<p>Meet <b>Max Mumble</b> (a fictional presenter). Max's talk on <i>"Sleep and School"</i> is going very badly. Your job: investigate.</p><p class="muted">Click each panel on the next screen to reveal a mistake. Find all eight.</p>`},
+ {type:'hot',title:'Crime scene: Max\'s presentation',intro:'Click every panel that shows a problem. Each one tells you why it hurts communication and how to fix it.',hot:[
+  {view:`<div class="mini tiny">Sleep is very important for teenagers and there are many reasons why sleep is important and everybody should sleep more because sleep helps the brain and the body and the mind and also school and also sport and also mood and also many other things such as memory and attention and also health and growth and happiness and so on and so on and on and on …</div>`,name:'A wall of text, read word for word',fb:'The audience has to read and listen at the same time. They usually do neither well, and Max never looks at them.',fix:'Put 3–4 keywords on the slide. Explain the rest in your own words.'},
+  {view:`<div class="mini tiny" style="font-size:.4rem">Source: some website I think (6 pt font)</div><span class="bubble">Can anyone read this?</span>`,name:'Tiny text',fb:'If the back row cannot read it, the slide is not helping anybody.',fix:'Use a large, plain font (at least 24 pt) and strong contrast.'},
+  {view:`<span class="big">🦆🚀🍕</span><div class="mini">Slide title: "The Brain"</div>`,name:'Irrelevant images',fb:'Pictures that have nothing to do with the point distract the audience. They are decoration, not communication.',fix:'Choose one image that explains or supports your point, or no image at all.'},
+  {view:`<span class="bubble">"Everyone knows energy drinks make you a genius!"</span>`,name:'Unsupported claim',fb:'Max gives no evidence and no source. A confident voice is not the same as proof.',fix:'Support claims with evidence, and say where it comes from: "According to …".'},
+  {view:`<div class="mini"><b>Slide 1:</b> Facts, facts, facts<br><b>Last slide:</b> The End?</div>`,name:'No introduction or conclusion',fb:'The audience does not know what the talk is about or what the answer is.',fix:'Open with a hook and your purpose. Finish with a conclusion that answers your question.'},
+  {view:`<span class="bubble">mmm-mm-fast-um-mumble…</span><span class="big">😬</span>`,name:'Delivery: too fast and too quiet',fb:'If the audience cannot hear or follow, the content is lost, however good it is.',fix:'Slow down, speak up, and pause after key points.'},
+  {view:`<span class="bubble">Teacher: "What does 'cortisol' mean?"<br>Max: "Uh…"</span>`,name:'Cannot answer basic questions',fb:'Max presented ideas he never really understood.',fix:'Understand every part of your topic. Be ready to explain it in simple words.'},
+  {view:`<div class="mini"><b>Source:</b> "a chatbot" (not checked)</div><span class="big">🤖</span>`,name:'Unchecked AI information',fb:'AI can sound very sure and still be wrong. Max cannot defend something he never verified.',fix:'Check AI claims in original, credible sources. Do the thinking yourself first.'}
+ ]},
+ {type:'choice',title:'Diagnosis 1',scene:`<div class="slides" style="grid-template-columns:1fr"><div class="slide"><h4>Sleep</h4><div style="font-size:.7em">Sleep is very important. Teenagers need sleep. There are many reasons… (200 words in total, and Max reads every one of them aloud).</div></div></div>`,
+  q:'Max displays a slide with 200 words and reads every word aloud. What is the problem?',
+  options:[
+   {t:'Excellent: the audience receives all the information.',ok:false,fb:'The audience cannot read and listen to the same words at the same time.'},
+   {t:'Not effective: the audience must read and listen to the same information at once.',ok:true,fb:'Right. Text-heavy slides compete with the speaker.'},
+   {t:'Perfect: more text always shows more knowledge.',ok:false,fb:'Knowledge shows when you can explain ideas, not when you project paragraphs.'}],
+  tip:'Practical improvement: 3–4 keywords on the slide, the explanation in your voice.',hint:'Think about what your audience\'s eyes and ears are doing.'},
+ {type:'choice',title:'Diagnosis 2',q:'Max ends with: "…so yeah. That\'s it. Thanks?" What should a strong conclusion do?',
+  options:[
+   {t:'Answer the research question and leave the audience with one clear message.',ok:true,fb:'Yes. A conclusion closes the loop you opened in your introduction.'},
+   {t:'Add three new facts so the audience gets even more.',ok:false,fb:'New information at the end confuses the message.'},
+   {t:'Apologise for everything that went wrong.',ok:false,fb:'Apologising draws attention to mistakes. Finish calmly instead.'}],
+  tip:'Try: "So, to answer my question: …"',hint:'Look back at your introduction.'},
+ {type:'choice',title:'Diagnosis 3',q:'Max copied an AI answer into his slides without checking it. What should he have done?',
+  options:[
+   {t:'Nothing. AI is always right.',ok:false,fb:'AI can be confidently wrong, or invent details.'},
+   {t:'Think about the topic first, then use AI to ask questions, and verify any facts in credible sources.',ok:true,fb:'Exactly: think first, collaborate critically, check the evidence.'},
+   {t:'Hide that he used AI.',ok:false,fb:'Follow your teacher\'s rules on AI use and be honest about it.'}],
+  tip:'You will practise this "THINK → COLLABORATE → REFLECT" routine later in the game.',hint:'Who is responsible for the content of your presentation?'}
+]},
+/* ===== 2 ===== */
+{id:2,icon:'🏗️',title:'Build a Presentation That Makes Sense',badge:'Structure Architect',mission:'Rescue a presentation with no structure.',steps:[
+ {type:'order',title:'Put the presentation in order',id:'o2',
+  intro:'Arrange the parts in a logical order. Remove the funny distractors. Drag the cards, or use the arrow buttons.',
+  items:[
+   {id:'a',t:'Hook: a surprising question or short story',pos:0},
+   {id:'b',t:'Introduction: topic and purpose',pos:1},
+   {id:'c',t:'Research question or central argument',pos:2},
+   {id:'d',t:'Main point 1, with an explanation and an example',pos:3},
+   {id:'e',t:'Transition: "Now that we have seen …, let\'s look at …"',pos:4},
+   {id:'f',t:'Main point 2, supported by reliable evidence and a named source',pos:5},
+   {id:'g',t:'Conclusion that answers the research question',pos:6},
+   {id:'h',t:'Complete reference list',pos:7},
+   {id:'x',t:'Start with "That\'s all from me."',pos:null},
+   {id:'y',t:'Add 17 unrelated facts about penguins',pos:null},
+   {id:'z',t:'Introduce the topic after the conclusion',pos:null}],
+  model:[['Hook','Wakes the audience up.'],['Introduction','Tells them what and why.'],['Research question','Gives the talk a direction.'],['Main point 1','Explains one idea with an example.'],['Transition','Helps the audience follow you.'],['Main point 2 + evidence','Makes your claim credible.'],['Conclusion','Answers the question.'],['References','Shows where information came from.']]},
+ {type:'classify',title:'Topic, research question or argument?',
+  intro:'These three are different. Sort each statement.',cats:['Topic','Research question','Argument'],
+  items:[
+   {t:'Sleep and school performance',ans:0,fb:'A topic is an area, not yet a question or a claim.'},
+   {t:'How does the amount of sleep affect concentration in teenagers?',ans:1,fb:'A question you can investigate and answer.'},
+   {t:'Teenagers concentrate better when they sleep enough, so school days should start later.',ans:2,fb:'An argument takes a position and gives a reason. Your evidence has to support it.'}]},
+ {type:'info',title:'Quick recap',html:`<div class="model"><div><b>Topic</b> = the area ("Energy drinks")</div><div><b>Research question</b> = what you want to find out</div><div><b>Argument</b> = your answer, with reasons and evidence</div></div><p>A presentation with a clear research question is easy to follow, because everything points to the answer.</p>`}
+]},
+/* ===== 3 ===== */
+{id:3,icon:'🖼️',title:'The Visual Villain',badge:'Slide Saver',mission:'Turn terrible slides into helpful visual aids.',steps:[
+ {type:'choice',title:'Slide duel 1: text',scene:`<div class="slides"><div class="slide"><span class="lab">A</span><h4>Sleep</h4><div style="font-size:8px;line-height:1.2">Sleep is when the body rests and the brain organises what happened during the day and many experts think that sleeping enough is important for teenagers because teenagers have busy lives with school, sport and friends and screens and so on, and when you do not sleep enough you can feel tired and have problems with many things such as concentration and mood and also…</div></div><div class="slide"><span class="lab">B</span><h4>Sleep and focus</h4><ul style="font-size:15px"><li>Tired brain = slower focus</li><li>Routine helps</li><li>My question: how much?</li></ul></div></div>`,
+  q:'Which slide supports the speaker better?',options:[
+   {t:'Slide A: it contains more information.',ok:false,fb:'More text means less attention for you.'},
+   {t:'Slide B: short key points, and the speaker adds the details.',ok:true,fb:'Yes. Your audience came to hear you, not to read your entire essay projected onto a wall.'}],tip:'Slides support the speaker; they do not replace the speaker.',hint:'Who should do the explaining?'},
+ {type:'choice',title:'Slide duel 2: readability',scene:`<div class="slides"><div class="slide"><span class="lab">A</span><h4 style="font-size:9px;color:#bbb">Habits</h4><div style="font-size:7px;color:#c9c9a8">Drink water. Sleep 8 hrs. Eat breakfast. Move daily.</div></div><div class="slide"><span class="lab">B</span><h4 style="font-size:22px">Habits</h4><div style="font-size:17px">Drink water<br>Sleep enough<br>Move daily</div></div></div>`,
+  q:'Which slide can the back row read?',options:[
+   {t:'Slide A: small pale letters look elegant.',ok:false,fb:'Elegant but invisible. Pale colours on white are very hard to read.'},
+   {t:'Slide B: large text and strong contrast.',ok:true,fb:'Yes. Big, plain and dark on light is your friend.'}],tip:'Aim for at least 24 pt and strong contrast.',hint:'Imagine sitting at the back of the room.'},
+ {type:'choice',title:'Slide duel 3: images',scene:`<div class="slides"><div class="slide"><span class="lab">A</span><h4>Sleep and concentration</h4><span class="big" style="font-size:2.4rem">🦆🍕🚀🎸</span></div><div class="slide"><span class="lab">B</span><h4>Sleep and concentration</h4><span class="big" style="font-size:2.4rem">😴 ➜ 📚</span><div>A tired brain at the exam</div></div></div>`,
+  q:'Which image choice is better?',options:[
+   {t:'Slide A: colourful pictures keep people awake.',ok:false,fb:'Unrelated pictures distract and say nothing about your topic.'},
+   {t:'Slide B: one image that illustrates the point.',ok:true,fb:'Yes. Every visual should have a job.'}],tip:'Ask: what does this image explain?',hint:'Which image helps the audience understand?'},
+ {type:'choice',title:'Slide duel 4: charts',scene:`<div class="slides"><div class="slide"><span class="lab">A</span><div class="bars"><i style="height:60%;background:#e63946"></i><i style="height:30%;background:#f4a261"></i><i style="height:90%;background:#2a9d8f"></i><i style="height:45%;background:#264653"></i><i style="height:70%;background:#8338ec"></i><i style="height:20%;background:#ffbe0b"></i><i style="height:80%;background:#fb5607"></i><i style="height:35%;background:#3a86ff"></i></div><div>(no title, no labels)</div></div><div class="slide"><span class="lab">B</span><h4>Hours slept (fictional example)</h4><div class="bars"><i style="height:45%;background:#3a86ff"></i><i style="height:70%;background:#3a86ff"></i><i style="height:90%;background:#3a86ff"></i></div><div style="display:flex;gap:5px;text-align:center"><span style="flex:1">5 h</span><span style="flex:1">7 h</span><span style="flex:1">9 h</span></div></div></div>`,
+  q:'Which chart is clearer?',options:[
+   {t:'Chart A: more bars, more colours, more data.',ok:false,fb:'Without a title or labels nobody knows what the bars mean.'},
+   {t:'Chart B: a clear title, labelled axes and one colour.',ok:true,fb:'Yes. A good chart makes one point quickly. (The numbers here are fictional.)'}],tip:'Title it, label it, and tell the audience what to notice.',hint:'Can you tell what the bars measure?'},
+ {type:'choice',title:'Slide duel 5: consistency',scene:`<div class="slides"><div class="slide" style="background:#fff3b0"><span class="lab">A</span><h4 style="font-family:'Courier New',monospace;color:#d00">Stress</h4><div style="font-family:Georgia,serif;text-align:right;color:#06c">Breathing</div><div style="font-family:'Comic Sans MS',cursive;color:#0a0">Talk to a friend!!!</div></div><div class="slide"><span class="lab">B</span><h4>Stress</h4><ul style="font-size:14px"><li>Breathing</li><li>Talk to a friend</li><li>Move your body</li></ul></div></div>`,
+  q:'Which design is better?',options:[
+   {t:'Slide A: variety is exciting.',ok:false,fb:'Mixed fonts, colours and alignment look chaotic.'},
+   {t:'Slide B: one font, one colour scheme, one layout.',ok:true,fb:'Yes. Consistency lets the audience focus on your message.'}],tip:'Use the same fonts, colours and layout on every slide.',hint:'Count the fonts on each slide.'},
+ {type:'choice',title:'Keywords or paragraphs?',q:'Where should the full explanation of an idea live?',options:[
+   {t:'On the slide, so I can read it.',ok:false,fb:'Then you are reading, not presenting.'},
+   {t:'In my speaking, with a few keywords on the slide and in my notes to remind me.',ok:true,fb:'Yes. Keywords are prompts. The meaning comes from you.'},
+   {t:'Nowhere. Keep the audience guessing.',ok:false,fb:'Mysterious, but not a plan.'}],tip:'Humour break: nobody ever said "I loved that presentation, especially the paragraph".',hint:'Who is the expert in the room?'},
+ {type:'multi',title:'Repair the slide',scene:`<div class="slides" style="grid-template-columns:1fr"><div class="slide" style="background:#fff3b0"><h4 style="font-family:'Courier New',monospace;color:#d00;font-size:10px">energy drinks</h4><div style="font-size:7px;font-family:Georgia,serif;color:#06c">Energy drinks contain caffeine and sugar and many people drink them for many reasons such as studying, sports, gaming, driving, and parties and some people say they are good and some people say they are bad and it depends and nobody really knows but I think …</div><span style="font-size:2rem">🦆</span></div></div>`,
+  q:'Choose ALL the improvements that would fix this slide.',options:[
+   {t:'Cut the paragraph to 3–4 keywords.',ok:true,fb:'Yes, short key points.'},
+   {t:'Make the font much larger.',ok:true,fb:'Yes, so everyone can read it.'},
+   {t:'Replace the duck with a relevant image, or remove it.',ok:true,fb:'Yes, every image needs a job.'},
+   {t:'Use one font and one colour scheme.',ok:true,fb:'Yes, consistent design.'},
+   {t:'Add 10 more facts so it looks serious.',ok:false,fb:'More facts make the slide worse, not better.'},
+   {t:'Animate every single word.',ok:false,fb:'Animation overload steals attention from your message.'}],tip:'Hero line: "Slides support the speaker; the speaker is the show."',hint:'Four of the six options are improvements.'}
+]},
+/* ===== 4 ===== */
+{id:4,icon:'🎤',title:'The Speaking Showdown',badge:'Confident Communicator',mission:'Learn how delivery influences understanding.',steps:[
+ {type:'info',title:'Be understood, not perfect',html:`<p>Effective presenters are not perfect. They are <b>clear</b>, and they know how to <b>recover</b>.</p><p>Confidence, eye contact and gestures can look different for different people. In this level, no single style is "the right one". We look for what helps the audience understand.</p>`},
+ {type:'choice',title:'Pace and volume',q:'The back row says they cannot hear you, and you are racing through your slides. What helps most?',options:[
+   {t:'Speak faster to finish on time.',ok:false,fb:'Speed hides your message.'},
+   {t:'Slow down a little and speak from your chest, not your throat, so the room can hear.',ok:true,fb:'A slightly slower pace and a steady volume make you easier to follow.'},
+   {t:'Whisper, so people have to listen carefully.',ok:false,fb:'Dramatic, but nobody can follow a whisper.'}],tip:'Practise aloud, with a timer.',hint:'Think of the person farthest from you.'},
+ {type:'choice',title:'Pauses and emphasis',q:'You have just said your most important point. What now?',options:[
+   {t:'Continue immediately before the audience can think.',ok:false,fb:'The point gets lost in the rush.'},
+   {t:'Pause for a moment and stress the key words.',ok:true,fb:'A pause lets the idea land.'},
+   {t:'Say it again and again in the same flat voice.',ok:false,fb:'Repetition without variation is just noise.'}],tip:'Silence is a tool, not a mistake.',hint:'Give the idea space.'},
+ {type:'choice',title:'Pronunciation and intelligibility',q:'You are unsure how to pronounce a key word. What is the best plan?',options:[
+   {t:'Avoid the word completely, even though it is central.',ok:false,fb:'You may lose your key idea.'},
+   {t:'Practise it beforehand (with a dictionary or audio), then say it clearly and carry on if it is not perfect.',ok:true,fb:'Being understood matters more than sounding like a native speaker.'},
+   {t:'Whisper it so nobody notices.',ok:false,fb:'It makes the word harder to understand.'}],tip:'Accents are fine. Clarity is the goal.',hint:'Preparation beats panic.'},
+ {type:'choice',title:'Body language and eye contact',q:'A presenter finds eye contact uncomfortable. What is a good approach?',options:[
+   {t:'They are a bad presenter and should not talk.',ok:false,fb:'No. There are many ways to connect with an audience.'},
+   {t:'Look at a few friendly faces or at different parts of the room, use a warm, engaged voice, and check in with the audience.',ok:true,fb:'Connection comes from many things. Choose what feels comfortable and still includes your audience.'},
+   {t:'Stare at the screen for the whole talk.',ok:false,fb:'The audience feels ignored.'}],tip:'There is more than one way to look confident.',hint:'Think about different ways to include people.'},
+ {type:'choice',title:'Natural gestures',q:'What do you do with your hands?',options:[
+   {t:'Whatever feels natural, with purpose: point to a slide, show a number, or keep them relaxed.',ok:true,fb:'Natural, purposeful movement supports your words. Stillness is also fine.'},
+   {t:'Wave them wildly all the time.',ok:false,fb:'Constant movement distracts.'},
+   {t:'Hide them in a pocket and never move.',ok:false,fb:'If it feels comfortable it can work, but fixed postures can look tense. Aim for relaxed.'}],tip:'Choose what is comfortable and not distracting.',hint:'There is more than one workable answer, but one is the most helpful.'},
+ {type:'choice',title:'Using notes',q:'How should you use your notes?',options:[
+   {t:'Write every word and read it aloud.',ok:false,fb:'Reading makes you sound distant and hard to follow.'},
+   {t:'Use keywords as reminders and speak in your own words.',ok:true,fb:'Keywords keep you on track and make you sound natural.'},
+   {t:'No notes at all, ever, whatever happens.',ok:false,fb:'Notes are allowed (check the assignment). Reminders help.'}],tip:'Practise from keywords several times.',hint:'Notes are for reminding, not reading.'},
+ {type:'choice',title:'Managing nervousness',q:'Your hands shake before you start. What helps?',options:[
+   {t:'Breathe slowly, remind yourself that some nerves are normal, and start with the sentence you know best.',ok:true,fb:'Nerves are normal. A strong first sentence and slow breathing help you settle.'},
+   {t:'Tell everyone how terrible you feel for two minutes.',ok:false,fb:'It draws attention to the nerves instead of your message.'},
+   {t:'Cancel the presentation.',ok:false,fb:'Practice and small steps help more than avoiding it.'}],tip:'Rehearse the first 30 seconds until it feels automatic.',hint:'Think about calming your body and starting strong.'},
+ {type:'choice',title:'Connecting with the audience',q:'How can you involve the audience?',options:[
+   {t:'Ask a short question, give a relatable example, or use "you" and "we".',ok:true,fb:'These small moves make the audience feel part of the talk.'},
+   {t:'Never mention the audience.',ok:false,fb:'You miss the chance to connect.'},
+   {t:'Make fun of someone in the audience.',ok:false,fb:'Never. Respect always.'}],tip:'Imagine you are explaining to a friend.',hint:'Think about what makes people listen.'},
+ {type:'choice',title:'Forgetting a word',q:'A presenter forgets a word. What should they do?',options:[
+   {t:'Panic and apologise for two minutes.',ok:false,fb:'The panic is more memorable than the missing word.'},
+   {t:'Pause, rephrase, and continue.',ok:true,fb:'Effective presenters communicate clearly and recover when something goes wrong.'},
+   {t:'Pretend the presentation has ended.',ok:false,fb:'Creative, but the teacher will notice.'}],tip:'Practise using other words: "what I mean is …".',hint:'Recover and carry on.'},
+ {type:'choice',title:'Answering questions honestly',q:'Someone asks something you cannot answer. What now?',options:[
+   {t:'Make something up so you look clever.',ok:false,fb:'Invented answers can damage your credibility.'},
+   {t:'Say what you do know, and honestly add what you would need to check.',ok:true,fb:'Honesty builds trust. "I am not sure. I would check … to find out" is a strong answer.'},
+   {t:'Say "no questions allowed".',ok:false,fb:'Questions are part of a good presentation.'}],tip:'"Good question. I did not find evidence about that, but I would look at …"',hint:'Honesty is a strength.'}
+]},
+/* ===== 5 ===== */
+{id:5,icon:'🔎',title:'The Evidence Detective: Research and Oral Citations',badge:'Evidence Detective',mission:'Find out how presenters make claims credible.',steps:[
+ {type:'info',title:'What makes a claim believable?',html:`<p>Not every sentence is evidence. Strong presenters know the difference between an <b>opinion</b>, an <b>unsupported claim</b> and <b>reliable research</b>, and they tell the audience where their information comes from.</p><div class="ban fict"><span class="tag fict">FICTIONAL</span> All sources, authors and findings in the practice tasks are made up for training only.</div>`},
+ {type:'classify',title:'What kind of statement is it?',intro:'Sort each statement (all examples are fictional).',cats:['Personal opinion','Unsupported claim','Reliable research','Expert commentary','Social media content','Unverified AI information'],
+  items:[
+   {t:'"I think mornings are the worst."',ans:0,fb:'A personal opinion. Fine as an opinion, but it is not evidence.'},
+   {t:'"Everybody knows sugar makes you hyper."',ans:1,fb:'"Everybody knows" is a warning sign: a claim with no source.'},
+   {t:'A published study with a named author, year, method and results. (Fictional example)',ans:2,fb:'Reliable research can be traced, checked and understood.'},
+   {t:'A named sleep specialist explaining her view in an interview. (Fictional example)',ans:3,fb:'Expert commentary is useful but still a view. Say who said it.'},
+   {t:'A viral video with two million likes that says "this trick cures stress". (Fictional example)',ans:4,fb:'Popularity is not proof. Social media content needs checking.'},
+   {t:'A chatbot says "Teens need exactly 7.3 hours of sleep" and gives no source. (Fictional example)',ans:5,fb:'Unverified AI information. Do not use it until you have checked the original evidence.'}]},
+ {type:'multi',title:'Which claims need evidence?',q:'Choose ALL the statements that need evidence in a presentation.',options:[
+   {t:'"Screen time before bed makes it harder to fall asleep."',ok:true,fb:'A factual claim about cause and effect: needs evidence.'},
+   {t:'"In my opinion, group work is more fun."',ok:false,fb:'Marked as your opinion, so no source is needed (explain why, though).'},
+   {t:'"Most teenagers do not get enough sleep."',ok:true,fb:'A claim about many people: needs a source and a number or study.'},
+   {t:'"Today I will talk about stress."',ok:false,fb:'A signpost, not a claim.'}],tip:'Ask: could someone reasonably say "how do you know that?"',hint:'Look for facts about the world.'},
+ {type:'choice',title:'Challenge A: Spot the unsupported claim',q:'You want to say: <b>"Energy drinks improve academic performance."</b> Which action is most responsible?',options:[
+   {t:'Repeat it because it sounds believable.',ok:false,fb:'Sounding believable is not evidence.'},
+   {t:'Use a social media influencer as the only authority.',ok:false,fb:'One influencer is not reliable research.'},
+   {t:'Find relevant research, inspect the original source, and check what the evidence actually supports.',ok:true,fb:'Yes. You may discover the evidence is weaker, narrower or different from the claim.'},
+   {t:'Ask AI whether the claim is true and accept its answer.',ok:false,fb:'AI is not a source of evidence. It can help you search, but you must check the original.'}],tip:'Always inspect the original evidence.',hint:'The best option involves reading the actual source.'},
+ {type:'info',title:'Phrase locker: oral citations',html:`<p>Name the source naturally, so the audience knows where it came from:</p><div class="model"><div>“According to <b>[author]</b> (<b>[year]</b>), …”</div><div>“In a study published in <b>[year]</b>, <b>[author]</b> and colleagues found that …”</div><div>“The <b>[organisation]</b> reported in <b>[year]</b> that …”</div><div>“Research by <b>[verified author]</b> suggests that …”</div><div>“A report published by <b>[organisation]</b> highlights …”</div></div><p>The brackets are placeholders. Fill them only with a source you have checked. Also put a full reference on your reference slide, in the format your teacher requires.</p>`},
+ ()=>({type:'choice',title:'Challenge B: Repair the oral citation (1)',scene:fictBan()+srcCard(),
+  q:'A fictional presenter says: <b>"Studies say that social media is bad."</b> Use the source card to repair it.',options:[
+   {t:'"Research proves social media is bad for everyone."',ok:false,fb:'Too big. "Proves" and "everyone" go far beyond any single study.'},
+   {t:'"'+srcSentence()+'"',ok:true,fb:'The claim is smaller, accurate and named. Notice how it now matches what the source actually found.'},
+   {t:'"'+SRC.author+' said so, so social media is bad."',ok:false,fb:'Name the source AND report what it really found. Do not stretch it.'},
+   {t:'"Many studies, which I will not name, say it is bad."',ok:false,fb:'An unnamed source cannot be checked.'}],tip:'Match your sentence to the source. Do not claim more than the evidence shows.',hint:'Pick the sentence that names the author and the real finding.'}),
+ {type:'choice',title:'Challenge B: Repair the oral citation (2)',q:'A fictional presenter says: <b>"AI says that teenagers need eight hours of sleep."</b> What is the best repair?',options:[
+   {t:'Keep it. AI usually knows these things.',ok:false,fb:'AI may be wrong or may be repeating something with no source.'},
+   {t:'Ask the AI to give a source, and cite whatever it says.',ok:false,fb:'AI sometimes invents sources. You must find the source yourself.'},
+   {t:'Look for official guidance or research, read what it really says, and then say "According to [organisation or author, year – added after checking], …".',ok:true,fb:'Correct. This game does not invent a source for you. You find and check a real one. The bracket shows where your verified source goes.'},
+   {t:'Delete the claim and say nothing about sleep.',ok:false,fb:'Sometimes right, but here you can improve it with evidence.'}],tip:'AI can suggest where to look. It cannot be your source.',hint:'Who should check the original?'}
+]},
+/* ===== 6 ===== */
+{id:6,icon:'🧠',title:'THINK: Your Brain Goes First',badge:'Independent Thinker',stage:'think',mission:'Investigate a topic before using AI.',steps:[
+ {type:'info',title:'Stage 1 of 3: THINK',html:`<div class="seq"><span class="tag think">THINK</span> → <span class="tag">COLLABORATE</span> → <span class="tag">REFLECT</span></div><div class="ban think">Your brain has entered the chat! Give it a chance to think before inviting AI.</div><p>You will choose a topic and write down your own thinking. When you save, your answers are <b>locked</b>, so you can compare them with your thinking later. You do not need to be an expert. Effort and good questions count.</p>`},
+ {type:'think'}
+]},
+/* ===== 7 ===== */
+{id:7,icon:'🤝',title:'COLLABORATE WITH AI: A Scaffold, Not a Substitute',badge:'Human-AI Collaborator',stage:'collab',mission:'Use AI to challenge and develop your own ideas.',steps:[
+ {type:'info',title:'Stage 2 of 3: COLLABORATE',html:`<div class="seq"><span class="tag">THINK ✔</span> → <span class="tag collab">COLLABORATE</span> → <span class="tag">REFLECT</span></div><p>AI is a <b>tool for thinking, questioning and exploring</b>. It is not a replacement for understanding.</p><div class="ban sim"><span class="tag sim">SIMULATION</span> The assistant in this game is a <b>simulation</b>. It is not a live AI service and it follows scripts. It uses your topic and your answers from Level 6.</div><p>Rules to remember: question confident claims, check facts in credible sources, verify references yourself, reject suggestions that do not fit, keep ownership of your reasoning, and follow your teacher\'s rules on AI use and disclosure.</p>`},
+ {type:'ai'},
+ {type:'info',title:'AI judgement challenge',html:`<p>Next you will see four <b>fictional AI replies</b>. For each one, decide what you would do.</p>`},
+ {type:'choice',title:'AI reply 1',scene:`<div class="ai"><div class="who">🤖 Fictional AI reply</div>"Before I suggest anything: what do you think causes the effect you describe? Who might disagree with you? What would change your mind?"</div>`,
+  q:'What is the best thing to do with this reply?',options:[
+   {t:'Ignore it. Questions are annoying.',ok:false,fb:'These are exactly the questions that improve your thinking.'},
+   {t:'Answer the questions in my own words, then revise my argument.',ok:true,fb:'Yes. A helpful AI response asks questions and challenges assumptions, and you keep ownership.'},
+   {t:'Ask the AI to answer its own questions and paste the result.',ok:false,fb:'Then the thinking is no longer yours.'}],tip:'Good collaboration makes YOU think harder.',hint:'Who should do the thinking?'},
+ {type:'choice',title:'AI reply 2',scene:`<div class="ai"><div class="who">🤖 Fictional AI reply</div>"Studies prove that exactly 83% of teenagers are harmed by this. Everyone should stop immediately."</div>`,
+  q:'This number is invented for this exercise. How should you treat a reply like this?',options:[
+   {t:'Use the 83% in my slides. It sounds precise.',ok:false,fb:'Precise numbers feel trustworthy, but a number with no source is not evidence.'},
+   {t:'Do not use the number yet. Search for the original source and check what it really says.',ok:true,fb:'Right. Question confident-sounding claims and verify them in credible sources.'},
+   {t:'Add "AI says" in front of it and use it anyway.',ok:false,fb:'Naming AI does not make a claim true.'}],tip:'Precision is not proof.',hint:'Where does the number come from?'},
+ {type:'choice',title:'AI reply 3',scene:`<div class="ai"><div class="who">🤖 Fictional AI reply</div>"Here is your complete 5-minute presentation, with slides and speaker notes. Just read it aloud!"</div>`,
+  q:'What should you do?',options:[
+   {t:'Use it. It saves time.',ok:false,fb:'You would not understand or own the content, and you would not be able to answer questions.'},
+   {t:'Do not paste it. Use my own plan and ask AI for questions, feedback or language help, and make sure I can explain every sentence I keep.',ok:true,fb:'Yes. Retain ownership of your reasoning. Language suggestions are fine when you understand them and your teacher allows them.'},
+   {t:'Use it but change a few words so it looks like mine.',ok:false,fb:'That hides how much of it is not yours.'}],tip:'If you cannot explain it, do not present it.',hint:'Think about the questions from the audience.'},
+ {type:'choice',title:'AI reply 4',scene:`<div class="ai"><div class="who">🤖 Fictional AI reply</div>"A great source is Hallworth, J. (2021). <i>The Sleeping Teenager</i>. Oxford Press."<br><small>(This source is invented for this exercise.)</small></div>`,
+  q:'What is the responsible next step?',options:[
+   {t:'Cite it. It has an author, year and publisher.',ok:false,fb:'Details can look real and still be invented.'},
+   {t:'Try to find it in a library catalogue, publisher site or database. If I cannot find it, I do not cite it.',ok:true,fb:'Correct. Verify references independently. AI can invent sources that do not exist.'},
+   {t:'Ask the AI "are you sure?" and trust the answer.',ok:false,fb:'The AI may confidently repeat the mistake.'}],tip:'Real sources can be found by you, not just by the AI.',hint:'Can you find it yourself?'},
+ ()=>({type:'choice',title:'Oral citation challenge (1)',scene:fictBan()+srcCard(),
+  q:'Which sentence introduces this source orally and matches its real finding?',options:[
+   {t:'"Everyone knows that phones destroy sleep."',ok:false,fb:'No source and a huge claim.'},
+   {t:'"'+srcSentence()+'"',ok:true,fb:'It names the source and reports the finding without exaggeration.'},
+   {t:'"'+SRC.author+' ('+SRC.year+') proved that all phones are dangerous."',ok:false,fb:'It names the source but it overstates the finding.'}],tip:'Stay close to what the source really says.',hint:'Match the finding.'}),
+ ()=>({type:'write',id:'cite',title:'Oral citation challenge (2)',scene:fictBan()+srcCard(),
+  prompt:'Write your own sentence to introduce this source in a presentation. Use your own words for the finding.',original:'',minWords:8,
+  must:[[new RegExp(SRC.author.split(' ')[0],'i'),'Name the source: include the author.'],[new RegExp(SRC.year),'Include the year.']],
+  model:srcSentence(),modelNote:'One possible version. Yours may sound different and still be correct.',
+  extra:'<p class="muted">Tip: in your real presentation, use a source you have verified. If your teacher added one in the game file, it appears here.</p>'})
+]},
+/* ===== 8 ===== */
+{id:8,icon:'🪞',title:'REFLECT: What Did You Actually Learn?',badge:'Reflective Thinker',stage:'reflect',mission:'Compare your original thinking with your thinking after using AI.',steps:[
+ {type:'info',title:'Stage 3 of 3: REFLECT',html:`<div class="seq"><span class="tag">THINK ✔</span> → <span class="tag">COLLABORATE ✔</span> → <span class="tag reflect">REFLECT</span></div><p>Learning happens when you look back honestly. Compare what you thought before with what you think now.</p>`},
+ {type:'compare'},
+ {type:'reflect'},
+ {type:'stmt'}
+]}
+];
+
+/* ----------------------------- FINAL BOSS ----------------------------- */
+const BOSS = [
+ {id:'b1',label:'Opening and purpose',orig:'"Hi. Um, so my presentation is about sleep. It\'s, like, kind of important I guess."',why:'A hook grabs attention and a stated purpose tells the audience what to expect.'},
+ {id:'b2',label:'Order of main points',orig:'Penguin facts → conclusion → "my topic is sleep" → 17 more facts.',why:'A logical order with transitions is easy to follow.'},
+ {id:'b3',label:'Unsupported claim',orig:'"Everyone knows teenagers cannot focus with less than ten hours of sleep."',why:'A claim limited to what a checked source shows can be trusted and defended.'},
+ {id:'b4',label:'Introducing a source',orig:'Slide footnote: "Lund 2024." (Sam does not say it aloud.)',why:'Saying the source aloud tells the audience where the information comes from.'},
+ {id:'b5',label:'Slide',orig:'Slide 4: a full paragraph in 8 pt, a duck, and an unlabelled rainbow chart.',why:'A simple slide supports the speaker.'},
+ {id:'b6',label:'Speaking strategy',orig:'Reads a script at top speed, never looks up.',why:'Keywords and pauses make you easier to follow and more natural.'},
+ {id:'b7',label:'Responsible AI use',orig:'"I asked AI to write it all and pasted the answer."',why:'Thinking first and checking AI suggestions keeps the work yours.'},
+ {id:'b8',label:'Conclusion',orig:'"So yeah. That\'s all. Thanks."',why:'A conclusion that answers the research question gives the talk a purpose.'}
+];
+const bossMeta = id => BOSS.find(b=>b.id===id);
+LEVELS.push({id:9,icon:'🏆',title:'FINAL BOSS: Rescue the Oral Presentation',badge:'Oral Presentation Champion',boss:true,mission:'Improve a deliberately flawed presentation. Use everything you have learned.',steps:[
+ {type:'info',title:'Meet Sam Skim (fictional)',html:`<p><b>Sam Skim</b> is about to give a presentation called <i>"Sleep and School: Why Should I Care?"</i> It has problems everywhere: a weak start, no clear question, a messy order, unsupported claims, no oral citations, overloaded slides, poor delivery, uncritical AI use and a weak ending.</p><p>You have <b>eight rescue tasks</b>. At the end you will see Sam's original and your improved version side by side.</p>`},
+ {type:'write',id:'b1',title:'Task 1: Improve the opening',prompt:'Rewrite Sam\'s opening. Add a hook (a question or short scene), say the topic, and state the purpose. At least 15 words.',original:bossMeta('b1').orig.replace(/"/g,''),minWords:15,model:'Imagine it is 7:30 a.m. and your alarm rings. Your body says no. Today I will ask: how does the amount of sleep affect concentration at school? By the end you will have three ideas to try tonight.',modelNote:'One possible opening: hook + topic + purpose.',bossId:'b1'},
+ {type:'choice',title:'Task 2: Organise the main points',bossId:'b2',q:'Which order works best?',options:[
+   {t:'Hook → research question → main point 1 → transition → main point 2 with evidence → conclusion answering the question → references.',ok:true,fb:'A clear path from question to answer.'},
+   {t:'Penguin facts → conclusion → "my topic is sleep".',ok:false,fb:'The audience is lost before you begin.'},
+   {t:'All 17 facts at once, without transitions.',ok:false,fb:'Too much, with no signposts.'}],tip:'Transitions are signposts.',hint:'Start with the hook, end with the answer.'},
+ {type:'choice',title:'Task 3: Replace the unsupported claim',bossId:'b3',scene:fictBan()+srcCard(),q:'Sam says: <b>"Everyone knows teenagers cannot focus with less than ten hours of sleep."</b> What is the best repair?',options:[
+   {t:'Make a smaller claim that matches a source I have checked, and say where it comes from.',ok:true,fb:'Yes. Replace "everyone knows" with evidence you can name and explain.'},
+   {t:'Keep it but say it louder.',ok:false,fb:'Volume is not evidence.'},
+   {t:'Add "AI says" and keep it.',ok:false,fb:'AI is not a source.'}],tip:'Use the source card as practice. Use your own verified source in real life.',hint:'Evidence, not volume.'},
+ {type:'choice',title:'Task 4: Introduce a source naturally',bossId:'b4',scene:fictBan()+srcCard(),q:'Which version should Sam say aloud?',options:[
+   {t:'"Lund 2024." (while looking at the slide)',ok:false,fb:'Too short. The audience does not know what it is.'},
+   {t:'"'+srcSentence()+'"',ok:true,fb:'Names the source and states what it found.'},
+   {t:'"Some people say phones are a problem."',ok:false,fb:'No source to check.'}],tip:'Add the full reference to your reference list.',hint:'Name it, and say what it found.'},
+ {type:'choice',title:'Task 5: Improve the slide',bossId:'b5',bossText:'Slide 4 now has a short keyword title, one simple labelled chart, and a small source note. Sam explains the detail aloud.',scene:`<div class="slides"><div class="slide"><span class="lab">A</span><div style="font-size:7px;color:#999">Sleep is a very important factor for many reasons which we will now discuss at length and in detail …</div><div class="bars"><i style="height:60%;background:#e63946"></i><i style="height:30%;background:#8338ec"></i><i style="height:80%;background:#ffbe0b"></i></div>🦆</div><div class="slide"><span class="lab">B</span><h4 style="font-size:18px">Phones in bed → later sleep</h4><div class="bars"><i style="height:40%;background:#3a86ff"></i><i style="height:75%;background:#3a86ff"></i></div><div style="display:flex;gap:5px;text-align:center"><span style="flex:1">No phone</span><span style="flex:1">Phone</span></div><small>Source: ${esc(SRC.author)} (${esc(SRC.year)})${SRC.fictional?' (fictional)':''}</small></div></div>`,
+  q:'Which slide should replace Slide 4?',options:[
+   {t:'Slide A: it shows everything.',ok:false,fb:'It shows too much, and none of it is readable.'},
+   {t:'Slide B: short title, one simple chart, small source note.',ok:true,fb:'Yes. It supports the speaker.'}],tip:'One slide, one message.',hint:'Which slide has one clear message?'},
+ {type:'choice',title:'Task 6: Choose a speaking strategy',bossId:'b6',q:'Sam reads a script at top speed. What is the best strategy?',options:[
+   {t:'Practise from keywords, slow down, pause after key points, and rephrase if a word goes missing.',ok:true,fb:'Natural and clear, and recoverable.'},
+   {t:'Memorise the whole script word for word.',ok:false,fb:'One lost word can derail everything.'},
+   {t:'Speak even faster to save time.',ok:false,fb:'Speed hurts understanding.'}],tip:'Clear beats perfect.',hint:'Recovering is a skill.'},
+ {type:'choice',title:'Task 7: Responsible AI use',bossId:'b7',q:'Sam says: "I asked AI to write it all." What is one responsible way to use AI in preparation?',options:[
+   {t:'Write my own plan first, then ask AI to challenge it and suggest search terms, verify the facts myself, and follow my teacher\'s rules on disclosure.',ok:true,fb:'Think first, collaborate critically, reflect honestly.'},
+   {t:'Paste the AI text and hope nobody notices.',ok:false,fb:'Not honest, and Sam cannot defend it.'},
+   {t:'Ask AI for sources and cite them without looking.',ok:false,fb:'AI can invent sources. Always verify.'}],tip:'You could write a short AI Use Statement like the one in Level 8.',hint:'Who thinks first?'},
+ {type:'write',id:'b8',title:'Task 8: Write a conclusion that answers the question',prompt:'Sam\'s research question is: "How does the amount of sleep affect concentration?" Write a conclusion that answers it. At least 15 words.',original:bossMeta('b8').orig.replace(/"/g,''),minWords:15,model:'So, how does sleep affect concentration? Based on the evidence I presented, too little sleep seems to make it harder to focus, so small changes such as a phone-free bedtime are worth testing. Thank you. I am happy to answer questions.',modelNote:'One possible conclusion: it answers the question and ends calmly.',bossId:'b8'},
+ {type:'bossCompare'}
+]});
+
+const CHECK = [
+ {cat:'Content and structure',items:['I have a clear research question or purpose.','My introduction explains what the presentation is about.','My main points are organised logically.','My conclusion answers my research question.']},
+ {cat:'Research and oral citations',items:['I use reliable, relevant evidence.','I can explain where my information comes from.','I introduce important sources naturally when speaking.','My final reference list contains complete and accurate references.','I have checked claims and sources rather than trusting AI automatically.']},
+ {cat:'Delivery and visuals',items:['My slides support my presentation rather than replace my speaking.','I have practised my timing and pronunciation.','I use notes as reminders rather than relying entirely on a script.','I have considered how to make my message clear to the audience.']},
+ {cat:'Responsible AI use',items:['I attempted the task independently before using AI.','I can explain and defend my own ideas.','I questioned and verified relevant AI suggestions.','I can honestly describe how I used AI.','I follow the teacher\'s requirements for AI disclosure.']}
+];
+const CHECK_TOTAL = CHECK.reduce((n,c)=>n+c.items.length,0);
+
+const REFQ = [
+ {id:'q1',q:'1. What did I think before using AI?',chips:['Initially, I thought …']},
+ {id:'q2',q:'2. What did AI help me understand or question?',chips:['After considering the AI suggestion, I realised …','I had not thought about …']},
+ {id:'q3',q:'3. Which suggestion did I reject, modify or verify?',chips:['I rejected this suggestion because …','I changed this suggestion because …','I verified the claim by checking …']},
+ {id:'q4',q:'4. Which source did I check independently?',chips:['I verified the claim by checking …','I still need to investigate …']},
+ {id:'q5',q:'5. How has my research question or argument changed?',chips:['My question changed from … to …','My argument is now …']},
+ {id:'q6',q:'6. Did AI improve my understanding, or did it simply make the task easier?',chips:['AI improved my understanding because …','It mostly made the task easier because …','I did not use AI for …']},
+ {id:'q7',q:'7. What parts of the final result are based on my own reasoning?',chips:['The ideas I developed myself are …']},
+ {id:'q8',q:'8. How will I acknowledge my AI use according to my teacher\'s instructions?',chips:['I will say that I used AI to …','Next time, I will use AI to …','I did not use AI, and I will say so.']}
+];
+
+/* ------------------------------ STATE ------------------------------ */
+const KEY='opq-session-v1';
+const fresh=()=>({view:'map',lv:null,st:0,unlocked:1,done:{},points:0,badges:[],scored:{},topic:'',customTopic:'',
+  think:{know:'',rq:'',q1:'',q2:'',arg:'',ev:'',pred:''},thinkSaved:false,thinkOriginal:null,
+  ai:{used:[],notes:{}},rev:{rq:'',arg:'',ev:''},refl:{},stmt:'',check:{},boss:{},w:{}});
+let S; try{S=Object.assign(fresh(),JSON.parse(sessionStorage.getItem(KEY)||'null')||{})}catch(e){S=fresh()}
+let T={};let CONF=null;
+const save=()=>{try{sessionStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const $=s=>document.querySelector(s);
+const getStep=(L,i)=>{const s=L.steps[i];return typeof s==='function'?s():s};
+const curLevel=()=>LEVELS[S.lv-1];
+const cur=()=>getStep(curLevel(),S.st);
+const key=()=>S.lv+':'+S.st;
+const resetT=()=>{T={wrong:[],solved:false,tries:0,fb:'',fbOk:null,hint:false,sel:null,found:[]}};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const words=s=>(s.trim().match(/\S+/g)||[]).length;
+const topicObj=()=>TOPICS[S.topic]||(S.customTopic?{name:S.customTopic,terms:[S.customTopic+' teenagers',S.customTopic+' official guidance',S.customTopic+' review of research'],persp:['A student','A teacher','A health professional','Someone with a different experience']}:null);
+const topicName=()=>topicObj()?topicObj().name:'(no topic chosen)';
+function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2600)}
+function award(k,n){if(S.scored[k])return false;S.scored[k]=1;S.points+=n;save();if(n>0)toast('+'+n+' points!');return true}
+function setPath(p,v){const a=p.split('.');let o=S;for(let i=0;i<a.length-1;i++){if(o[a[i]]==null)o[a[i]]={};o=o[a[i]]}o[a[a.length-1]]=v;save()}
+function getPath(p){return p.split('.').reduce((o,k)=>o==null?'':o[k],S)}
+
+/* ------------------------------ VIEWS ------------------------------ */
+function topBar(){
+  const pct=Math.round(Object.keys(S.done).length/9*100);
+  $('#top').innerHTML=`<div class="in"><div class="brand">🎓 The Oral Presentation Quest</div><span class="pts" aria-label="Points">⭐ ${S.points}</span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Quest progress"><i style="width:${pct}%"></i></div>${S.view!=='map'?'<button class="btn sm ghost" data-a="home">🗺️ Map</button>':''}</div>`;
+}
+function render(){
+  topBar();
+  const a=$('#app');
+  a.innerHTML=S.view==='map'?mapView():S.view==='level'?levelView():summaryView();
+  if(T.focusFb){const f=$('#fb');if(f)f.focus({preventScroll:false});T.focusFb=false}
+  if(T.scrollTop){window.scrollTo(0,0);T.scrollTop=false}
+  const rd=$('#ready');if(rd)updateReady();
+}
+function mapView(){
+  const nextId=LEVELS.find(l=>!S.done[l.id]&&l.id<=S.unlocked);
+  const node=l=>{
+    const locked=l.id>S.unlocked, done=S.done[l.id];
+    const cls=['node',l.stage||'',l.boss?'boss':'',done?'done':'',(!locked&&!done&&nextId&&nextId.id===l.id)?'next':''].join(' ');
+    return `<button class="${cls}" data-a="start" data-l="${l.id}" ${locked?'disabled':''} aria-label="${l.boss?'Final boss':'Level '+l.id}: ${esc(l.title)}. ${locked?'Locked':done?'Completed':'Available'}"><span class="n">${l.boss?'👑':l.id}</span><span class="ic" aria-hidden="true">${locked?'🔒':done?'✅':l.icon}</span><b>${esc(l.title)}</b><span class="muted">${locked?'Finish the previous level to unlock':done?'Badge: '+esc(l.badge)+' · replay':esc(l.mission)}</span></button>`};
+  const part=(t,ids)=>`<h2 class="part">${t}</h2><div class="grid">${ids.map(i=>node(LEVELS[i-1])).join('')}</div>`;
+  const summaryOk=S.done[9];
+  return `<section class="card hero"><div class="mascot" aria-hidden="true">🦉</div><div><h1>The Oral Presentation Quest: From Awkward to Awesome!</h1><p><b>Think first. Research wisely. Present confidently. Reflect honestly.</b></p><p>Welcome to the Presentation Academy. Complete the levels in order, earn badges, and get ready for your real oral assignment. Wrong answers are never the end: read the feedback and try again.</p></div></section>
+  <div class="card"><div class="seq"><span class="tag think">THINK</span> → <span class="tag collab">COLLABORATE WITH AI</span> → <span class="tag reflect">REFLECT</span></div><p class="muted">Play alone or with a partner. Nothing is sent anywhere. Your work stays in this browser tab, so use the download buttons if you want to keep your answers.</p></div>
+  ${part('Part 1: Presentation skills',[1,2,3,4])}
+  ${part('Part 2: Research and oral citations',[5])}
+  ${part('Part 3: THINK → COLLABORATE → REFLECT',[6,7,8])}
+  ${part('Final boss',[9])}
+  <div class="row"><button class="btn go" data-a="summary" ${summaryOk?'':'disabled'}>🏅 My achievements and checklist${summaryOk?'':' (unlocks after the boss)'}</button><button class="btn ghost" data-a="reset">Restart everything</button></div>${CONF==='reset'?`<div class="fb no" role="alertdialog" aria-label="Confirm restart"><b>Restart everything?</b> All progress, points, badges and answers in this tab will be deleted.<div class="row" style="margin-top:8px"><button class="btn pk" data-a="resetyes">Yes, restart</button><button class="btn ghost" data-a="cancel">Cancel</button></div></div>`:''}`;
+}
+function levelView(){
+  const L=curLevel(),n=L.steps.length;
+  const stage=L.stage?`<span class="tag ${L.stage}">${ST[L.stage]}</span>`:'';
+  const dots=`<div class="steps" aria-hidden="true">${L.steps.map((_,i)=>`<i class="${i<S.st?'on':i===S.st?'cur':''}"></i>`).join('')}</div>`;
+  if(S.st>=n)return completeView(L);
+  const st=cur();
+  let body='';
+  switch(st.type){
+   case 'info':body=`<h2>${st.title}</h2>${st.html}`;break;
+   case 'hot':body=rHot(st);break;
+   case 'choice':body=rChoice(st);break;
+   case 'order':body=rOrder(st);break;
+   case 'classify':body=rClass(st);break;
+   case 'multi':body=rMulti(st);break;
+   case 'write':body=rWrite(st);break;
+   case 'think':body=rThink();break;
+   case 'ai':body=rAi();break;
+   case 'compare':body=rCompare();break;
+   case 'reflect':body=rReflect();break;
+   case 'stmt':body=rStmt();break;
+   case 'bossCompare':body=rBoss();break;
+  }
+  return `<div class="card"><div class="row sp"><div>${stage}<span class="tag">${L.boss?'Final boss':'Level '+L.id}</span> <b>${esc(L.title)}</b></div><span class="muted">Step ${S.st+1} of ${n}</span></div><p class="muted"><b>Mission:</b> ${esc(L.mission)}</p>${dots}</div>
+  <section class="card">${body}</section>
+  <div class="row sp"><button class="btn ghost" data-a="back" ${S.st===0?'disabled':''}>← Back</button><button class="btn go" data-a="next">${S.st===n-1?'Finish level ✔':'Next →'}</button></div>`;
+}
+function fbBlock(st){
+  if(!T.fb)return '';
+  return `<div id="fb" tabindex="-1" class="fb ${T.fbOk?'ok':'no'}" role="status">${T.fb}${T.solved&&st&&st.tip?`<span class="tip">💡 ${st.tip}</span>`:''}</div>`;
+}
+const hintBlock=st=>st.hint?`<div class="row"><button class="btn sm ghost" data-a="hint">💡 Hint</button></div>${T.hint?`<div class="fb">${st.hint}</div>`:''}`:'';
+
+function rHot(st){
+  const f=T.found;
+  return `<h2>${st.title}</h2><p>${st.intro}</p><div class="hotgrid">${st.hot.map((h,i)=>`<button class="hot" data-a="hot" data-i="${i}" aria-label="Panel ${i+1}${f.includes(i)?', found: '+esc(h.name):''}">${h.view}<span class="chk">${f.includes(i)?'✔ '+(h.name.length>22?'Found':esc(h.name)):'?'}</span></button>`).join('')}</div>
+  <p><b>Mistakes found: ${f.length} / ${st.hot.length}</b></p>
+  ${f.slice().reverse().map(i=>`<div class="fb ok"><b>${st.hot[i].name}</b><br>${st.hot[i].fb}<span class="fix">🔧 Fix: ${st.hot[i].fix}</span></div>`).join('')}`;
+}
+function rChoice(st){
+  const L='ABCDEF';
+  return `<h2>${st.title||'Your move'}</h2>${st.scene||''}<p class="q">${st.q}</p><div class="opts">${st.options.map((o,i)=>`<button class="opt ${T.solved&&o.ok?'good':''} ${T.wrong.includes(i)?'bad':''}" data-a="pick" data-i="${i}" ${(T.solved||T.wrong.includes(i))?'disabled':''}><span class="L">${L[i]}</span><span>${o.t}</span></button>`).join('')}</div>${fbBlock(st)}${hintBlock(st)}`;
+}
+function rMulti(st){
+  const sel=T.sel||(T.sel=[]);
+  return `<h2>${st.title}</h2>${st.scene||''}<p class="q">${st.q}</p><div class="opts">${st.options.map((o,i)=>`<button class="opt ${sel.includes(i)?'sel':''} ${T.solved&&o.ok?'good':''}" data-a="tog" data-i="${i}" aria-pressed="${sel.includes(i)}" ${T.solved?'disabled':''}><span class="L">${sel.includes(i)?'✔':''}</span><span>${o.t}</span></button>`).join('')}</div><div class="row"><button class="btn alt" data-a="chk" ${T.solved?'disabled':''}>Check my answer</button></div>${fbBlock(st)}${hintBlock(st)}`;
+}
+function rClass(st){
+  T.ans=T.ans||{};T.wr=T.wr||{};
+  return `<h2>${st.title}</h2><p>${st.intro}</p>${st.items.map((it,i)=>{const ok=T.ans[i]!=null;const w=T.wr[i]||[];return `<div class="crow"><p><b>${it.t}</b></p><div class="cats">${st.cats.map((c,ci)=>`<button class="chip ${ok&&it.ans===ci?'good':''} ${w.includes(ci)?'bad':''}" data-a="cls" data-i="${i}" data-c="${ci}" ${(ok||w.includes(ci))?'disabled':''}>${c}</button>`).join('')}</div>${ok?`<p>✅ ${it.fb}</p>`:w.length?`<p>🤔 Not that one. Try another label.</p>`:''}</div>`}).join('')}${T.solved?`<div id="fb" tabindex="-1" class="fb ok" role="status">All sorted! 🎉 ${st.tip||''}</div>`:''}`;
+}
+function rOrder(st){
+  if(!T.list){T.list=shuffle(st.items.map(i=>i.id));T.rm=[];T.checks=0}
+  let k=0;
+  const rows=T.list.map((id,idx)=>{const it=st.items.find(x=>x.id===id),rm=T.rm.includes(id);const num=rm?'✖':(++k);
+   return `<li class="o ${rm?'rm':''}" draggable="${T.solved?'false':'true'}" data-drag="${idx}"><span class="num">${num}</span><span class="t">${esc(it.t)}</span>${T.solved?'':`<button class="btn sm ghost" data-a="up" data-i="${idx}" aria-label="Move up: ${esc(it.t)}" ${idx===0?'disabled':''}>▲</button><button class="btn sm ghost" data-a="down" data-i="${idx}" aria-label="Move down: ${esc(it.t)}" ${idx===T.list.length-1?'disabled':''}>▼</button><button class="btn sm ${rm?'alt':'pk'}" data-a="rm" data-id="${id}">${rm?'Put back':'Remove'}</button>`}</li>`}).join('');
+  return `<h2>${st.title}</h2><p>${st.intro}</p><ol class="ord">${rows}</ol>${T.solved?'':`<div class="row"><button class="btn alt" data-a="ochk">Check my order</button>${T.checks>=3?'<button class="btn ghost" data-a="oshow">Show me the answer</button>':''}</div>`}${fbBlock(st)}${T.solved?`<h3>Model structure</h3><div class="model">${st.model.map((m,i)=>`<div><b>${i+1}. ${m[0]}</b>: ${m[1]}</div>`).join('')}</div>`:''}`;
+}
+function rWrite(st){
+  const v=S.w[st.id]!=null?S.w[st.id]:(st.original||'');
+  return `<h2>${st.title}</h2>${st.scene||''}${st.original?`<div class="col"><b>Original (flawed):</b><br>${esc(st.original)}</div>`:''}<p class="q">${st.prompt}</p><label class="f" for="w-${st.id}">Your version</label><textarea id="w-${st.id}" data-f="w.${st.id}" rows="4">${esc(v)}</textarea>${st.extra||''}<div class="row"><button class="btn alt" data-a="wchk">Check my writing</button></div>${fbBlock(st)}${T.solved?`<div class="col new"><h3>${st.modelNote||'Model'}</h3><p>${esc(st.model)}</p></div>`:''}`;
+}
+function topicBtns(){
+  const ids=Object.keys(TOPICS);
+  return `<div class="chips" role="group" aria-label="Choose a topic">${ids.map(id=>`<button class="chip ${S.topic===id?'good':''}" data-a="topic" data-id="${id}" aria-pressed="${S.topic===id}" ${S.thinkSaved?'disabled':''}>${esc(TOPICS[id].name)}</button>`).join('')}</div>`;
+}
+function rThink(){
+  const lock=S.thinkSaved?'readonly':'';
+  return `<h2>The thinking workspace</h2><div class="ban think">Your brain has entered the chat! Give it a chance to think before inviting AI.</div>
+  <label class="f">Choose a topic</label>${topicBtns()}
+  <label class="f" for="ct">Or type a topic your teacher has approved</label><input type="text" id="ct" data-f="customTopic" value="${esc(S.customTopic)}" ${lock} placeholder="e.g. Hydration and focus">
+  ${THINKF.map(f=>`<label class="f" for="t-${f.id}">${f.label}${f.hint?`<span class="hint">${f.hint}</span>`:''}</label><textarea id="t-${f.id}" data-f="think.${f.id}" ${lock}>${esc(S.think[f.id])}</textarea>${S.thinkSaved?'':`<div class="chips" aria-label="Sentence starters">${f.chips.map(c=>`<button class="chip" data-a="chip" data-t="think.${f.id}" data-s="${esc(c)}">${esc(c)}</button>`).join('')}</div>`}`).join('')}
+  <div class="row" style="margin-top:14px">${S.thinkSaved?'':'<button class="btn go" data-a="savethink">🔒 Save my thinking</button>'}<button class="btn ghost" data-a="copythink">📋 Copy my answers</button>${S.thinkSaved?'<button class="btn ghost" data-a="redo">Start over with new thinking</button>':''}</div>${CONF==='redo'?`<div class="fb no" role="alertdialog" aria-label="Confirm start over"><b>Start over?</b> Your locked thinking, comparison and reflections will be cleared.<div class="row" style="margin-top:8px"><button class="btn pk" data-a="redoyes">Yes, start over</button><button class="btn ghost" data-a="cancel">Cancel</button></div></div>`:''}
+  ${S.thinkSaved?`<div class="fb ok" role="status">✅ Your original thinking is saved and locked. Level 7 is next, and in Level 8 you will compare. Press <b>Finish level</b> to collect your badge.</div>`:''}`;
+}
+function aiReply(id){
+  const th=S.thinkOriginal||S.think,tp=topicObj()||TOPICS.sleep;
+  const q=x=>x&&x.trim()?'“'+esc(x.trim())+'”':'<i>(you left this empty)</i>';
+  const li=a=>'<ul>'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+  switch(id){
+   case 'chal':return `<p>You wrote: ${q(th.arg)}</p><p>Let us test it. What would someone who disagrees say? Is there a situation where your argument would not hold? What kind of evidence would count <i>against</i> it?</p><p>Your turn: rewrite your argument so it can survive one objection.</p>`;
+   case 'ques':return `<p>You chose <b>${esc(topicName())}</b>. A few questions:</p>${li(['What exactly do you mean by the key words in your research question?','Which of your two questions ('+(th.q1||'?')+' / '+(th.q2||'?')+') would change your argument the most?','What would surprise you?'])}<p>Answer them in your own words, not mine.</p>`;
+   case 'persp':return `<p>Perspectives you could consider for <b>${esc(topicName())}</b>:</p>${li(tp.persp)}<p>Which of these have you not yet considered? Whose voice is missing in your argument?</p>`;
+   case 'evid':return `<p>You said evidence that would help is: ${q(th.ev)}</p>${li(['Official guidance from a recognised health organisation','Peer-reviewed research or a review of several studies','Statistics from a national or international institution'])}<p>When you find a source, ask: who made it? How recent is it? Who or what was studied? Does it really support what you want to say?</p>`;
+   case 'terms':return `<p>Search ideas (try variations, and check the original source):</p>${li(tp.terms)}<p>Prefer official, institutional or academic sites. Note the author, year and publisher as you go.</p>`;
+   case 'rq':return `<p>Your question: ${q(th.rq)}</p><p>Try making it more specific by asking: <i>Who</i> (which group)? <i>What</i> (which factor and which outcome)? <i>How</i> will you measure or judge it? One pattern: "How does [factor] affect [outcome] in [group]?"</p><p>Your topic stays <b>${esc(topicName())}</b>. I will not rewrite it for you. Try your own version in Level 8.</p>`;
+   case 'struct':return `<p>I cannot see your slides yet, so here are questions to test your structure:</p>${li(['What is your hook?','Which main point answers your first question ('+(th.q1||'?')+')?','Which point answers your second ('+(th.q2||'?')+')?','Where do you name your sources aloud?','Does your conclusion answer your research question?'])}`;
+   case 'cite':return `<p>Practise filling these in with a source <b>you have verified</b>:</p>${li(['According to [author] ([year]), …','In a study published in [year], [author] and colleagues found that …','The [organisation] reported in [year] that …'])}<p>I will not make up an author or a result for you. That would be inventing evidence.</p>`;
+   case 'trap':return `<p><b>I would not do that, and you should not want me to.</b> If I wrote your presentation you could not explain it or answer questions, and the work would not be yours. I can help you think, question, check your plan or practise phrases instead. Try another prompt!</p>`;
+  }
+  return '';
+}
+function rAi(){
+  const used=S.ai.used;
+  return `<h2>Ask the simulated assistant</h2><div class="ban sim"><span class="tag sim">SIMULATION</span> Not a live AI. Scripted replies that use your topic <b>${esc(topicName())}</b> and your Level 6 answers.</div>
+  <details><summary>My original thinking (from Level 6)</summary>${S.thinkOriginal?THINKF.map(f=>`<p><b>${f.label}</b><br>${esc(S.thinkOriginal[f.id])||'<i>(empty)</i>'}</p>`).join(''):'<p>You have not saved your thinking in Level 6 yet.</p>'}</details>
+  <p class="q">Choose a prompt (try at least two):</p><div class="opts">${AIP.map(p=>`<button class="opt" data-a="aip" data-id="${p.id}" ${used.includes(p.id)?'disabled':''}><span class="L">${used.includes(p.id)?'✔':'?'}</span><span>${p.t}${p.id==='trap'?' <span class="tag fict">tempting trap</span>':''}</span></button>`).join('')}</div>
+  <div class="chat" aria-live="polite">${used.map(id=>`<div class="me">${esc(AIP.find(p=>p.id===id).t)}</div><div class="ai"><div class="who">🤖 Simulated assistant (not a real AI)</div>${aiReply(id)}${id==='trap'?'':`<label class="f" for="n-${id}">What will you do with this? (accept, modify, reject or verify, and why)</label><textarea id="n-${id}" data-f="ai.notes.${id}" rows="2">${esc(S.ai.notes[id]||'')}</textarea>`}</div>`).join('')}</div>`;
+}
+function rCompare(){
+  const o=S.thinkOriginal||S.think;
+  const notes=Object.keys(S.ai.notes).filter(k=>S.ai.notes[k]&&S.ai.notes[k].trim());
+  return `<h2>Before and after</h2><p>Left: your locked original thinking. Right: your thinking now. You may keep an answer the same if it still fits. At least write your research question.</p>
+  <div class="two"><div class="col"><h3>Before (Level 6)</h3><p><b>Research question</b><br>${esc(o.rq)||'<i>(empty)</i>'}</p><p><b>First argument</b><br>${esc(o.arg)||'<i>(empty)</i>'}</p><p><b>Evidence I wanted</b><br>${esc(o.ev)||'<i>(empty)</i>'}</p></div>
+  <div class="col new"><h3>Now</h3><label class="f" for="r1">Research question</label><textarea id="r1" data-f="rev.rq">${esc(S.rev.rq)}</textarea><label class="f" for="r2">Argument</label><textarea id="r2" data-f="rev.arg">${esc(S.rev.arg)}</textarea><label class="f" for="r3">Evidence I will look for</label><textarea id="r3" data-f="rev.ev">${esc(S.rev.ev)}</textarea><div class="row"><button class="btn sm ghost" data-a="copyorig">Copy my original into the boxes</button></div></div></div>
+  ${notes.length?`<details open><summary>What I noted about AI suggestions</summary>${notes.map(k=>`<p><b>${esc(AIP.find(p=>p.id===k).t)}</b><br>${esc(S.ai.notes[k])}</p>`).join('')}</details>`:''}`;
+}
+function rReflect(){
+  return `<h2>Reflection questions</h2><div class="ban reflect">Short, honest answers are best. If you did not use AI in your real assignment, say so.</div>${REFQ.map(r=>`<label class="f" for="${r.id}">${r.q}</label><textarea id="${r.id}" data-f="refl.${r.id}" rows="3">${esc(S.refl[r.id]||'')}</textarea><div class="chips" aria-label="Sentence starters">${r.chips.map(c=>`<button class="chip" data-a="chip" data-t="refl.${r.id}" data-s="${esc(c)}">${esc(c)}</button>`).join('')}</div>`).join('')}`;
+}
+function genStmt(){
+  const r=S.refl,th=S.thinkOriginal||S.think,L=[];
+  L.push('AI USE STATEMENT (DRAFT. Check and edit it before you submit.)');
+  L.push('Topic: '+topicName());
+  if(r.q1)L.push('Before using AI, my own thinking was: '+r.q1.trim());
+  if(th.rq)L.push('My original research question was: "'+th.rq.trim()+'"');
+  if(r.q2)L.push('AI helped me understand or question: '+r.q2.trim());
+  if(r.q3)L.push('Suggestions I rejected, modified or verified: '+r.q3.trim());
+  if(r.q4)L.push('Sources I checked independently: '+r.q4.trim());
+  if(S.rev.rq)L.push('My research question after reflection: "'+S.rev.rq.trim()+'"');
+  if(r.q5)L.push('How my question or argument changed: '+r.q5.trim());
+  if(r.q6)L.push('Did AI improve my understanding? '+r.q6.trim());
+  if(r.q7)L.push('Parts based on my own reasoning: '+r.q7.trim());
+  if(r.q8)L.push('How I will acknowledge my AI use: '+r.q8.trim());
+  L.push('[Note: In this game the AI assistant was a simulation. Describe only the AI tools you really used in your own assignment, and follow your teacher\'s rules.]');
+  return L.join('\n');
+}
+function rStmt(){
+  if(!S.stmt){S.stmt=genStmt();save()}
+  return `<h2>Draft AI Use Statement</h2><div class="ban info">This draft uses <b>only what you wrote</b>. It is a draft: read it, correct it and delete anything that is not true.</div><label class="f" for="stm">My draft statement</label><textarea id="stm" data-f="stmt" rows="14">${esc(S.stmt)}</textarea><div class="row"><button class="btn ghost" data-a="regen">↻ Rebuild from my answers</button><button class="btn alt" data-a="copystmt">📋 Copy</button><button class="btn alt" data-a="dlstmt">⬇ Download (.txt)</button></div>`;
+}
+function rBoss(){
+  return `<h2>Before and after</h2><p>Sam's original on the left, your improved version on the right.</p><div class="tblwrap"><table class="cmp"><thead><tr><th>Element</th><th>Sam's original</th><th>Your rescue</th><th>Why it helps the audience</th></tr></thead><tbody>${BOSS.map(b=>`<tr><td><b>${esc(b.label)}</b></td><td class="o">${esc(b.orig)}</td><td class="n">${esc(S.boss[b.id]||'(not completed)')}</td><td>${esc(b.why)}</td></tr>`).join('')}</tbody></table></div><div class="fb ok">Press <b>Finish level</b> to claim your champion badge. 🏆</div>`;
+}
+function completeView(L){
+  const nextL=LEVELS[L.id],hasNext=L.id<9;
+  return `<section class="card" style="text-align:center"><h2>${L.boss?'You did it!':'Level complete!'}</h2><div class="badge pop" style="max-width:260px;margin:10px auto"><span class="e" aria-hidden="true">${L.boss?'🏆':L.icon}</span><b>${esc(L.badge)}</b><span class="muted">Badge earned</span></div><p>${L.id===1?'You found the problems. Now let\'s build good presentations.':L.id===6?'Your original thinking is saved. Next: collaborate with AI.':L.id===7?'Now compare what you thought before and after.':L.boss?'You are an Oral Presentation Champion. Use the checklist for your real presentation.':'Nice work, detective.'}</p><div class="row" style="justify-content:center"><button class="btn" data-a="home">🗺️ Back to the map</button>${hasNext?`<button class="btn go" data-a="start" data-l="${nextL.id}">Next: ${esc(nextL.title)} →</button>`:'<button class="btn go" data-a="summary">🏅 My achievements and checklist</button>'}</div></section>`;
+}
+function summaryView(){
+  const done=Object.keys(S.done).length;
+  return `<section class="card hero"><div class="mascot" aria-hidden="true">🏅</div><div><h1>My achievements</h1><p><b>${S.points}</b> points · <b>${S.badges.length}</b> of 9 badges · <b>${done}</b> of 9 levels complete</p><p>THINK independently. COLLABORATE critically. REFLECT honestly. Then present with confidence.</p></div></section>
+  <section class="card"><h2>Badges</h2><div class="grid">${LEVELS.map(l=>`<div class="badge ${S.badges.includes(l.badge)?'':'off'}"><span class="e" aria-hidden="true">${l.boss?'🏆':l.icon}</span><b>${esc(l.badge)}</b><span class="muted">${S.badges.includes(l.badge)?'Earned':'Not yet'}</span></div>`).join('')}</div></section>
+  <section class="card cl"><h2>My presentation checklist</h2><p>Tick each item you can honestly say yes to.</p>${CHECK.map((c,ci)=>`<h3>${c.cat}</h3>${c.items.map((it,i)=>{const id='c'+ci+'_'+i;return `<label><input type="checkbox" data-ck="${id}" ${S.check[id]?'checked':''}><span>${esc(it)}</span></label>`}).join('')}`).join('')}<div class="fb" id="ready" role="status"></div></section>
+  <section class="card"><h2>Keep your work</h2><p>Your answers are only in this browser tab. Copy or download them now. Do not share anything you would like to keep private.</p><div class="row"><button class="btn alt" data-a="copyall">📋 Copy everything</button><button class="btn alt" data-a="dlall">⬇ Download everything (.txt)</button><button class="btn ghost" data-a="home">🗺️ Replay levels</button></div></section>`;
+}
+function updateReady(){
+  const n=Object.values(S.check).filter(Boolean).length;
+  const m=n===CHECK_TOTAL?'🎉 All ticked. You are ready to present. Break a leg!':n>=CHECK_TOTAL*0.7?'💪 Nearly there. Work on the unticked items before your presentation.':n>0?'🌱 A good start. Practise the unticked items and come back.':'Tick what you have done so far.';
+  $('#ready').innerHTML=`<b>Readiness: ${n} / ${CHECK_TOTAL}</b><br>${m}`;
+}
+function exportText(){
+  const th=S.thinkOriginal||S.think,L=[];
+  L.push('THE ORAL PRESENTATION QUEST: MY WORK','Nannestad High School – Barbara Anna Zielonka','');
+  L.push('Points: '+S.points,'Badges: '+(S.badges.join(', ')||'none yet'),'','TOPIC: '+topicName(),'','THINK (my original thinking)');
+  THINKF.forEach(f=>L.push(f.label.replace(/^\d+[ab]?\.\s*/,'')+': '+(th[f.id]||'')));
+  L.push('','NOW (after COLLABORATE)','Research question: '+S.rev.rq,'Argument: '+S.rev.arg,'Evidence I will look for: '+S.rev.ev,'','REFLECT');
+  REFQ.forEach(r=>L.push(r.q+'\n'+(S.refl[r.id]||'')));
+  L.push('',S.stmt||genStmt(),'','FINAL BOSS: MY RESCUE');
+  BOSS.forEach(b=>L.push(b.label+': '+(S.boss[b.id]||'')));
+  L.push('','CHECKLIST');
+  CHECK.forEach((c,ci)=>{L.push(c.cat);c.items.forEach((it,i)=>L.push((S.check['c'+ci+'_'+i]?'[x] ':'[ ] ')+it))});
+  return L.join('\n');
+}
+function download(name,text){const b=new Blob([text],{type:'text/plain;charset=utf-8'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),500)}
+async function copy(text){
+  try{await navigator.clipboard.writeText(text);toast('Copied to clipboard')}
+  catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copied to clipboard')}catch(_){toast('Could not copy. Use Download instead.')}ta.remove()}
+}
+
+/* ------------------------------ ACTIONS ------------------------------ */
+function go(view,lv,st){CONF=null;S.view=view;if(lv!=null)S.lv=lv;if(st!=null)S.st=st;resetT();T.scrollTop=true;save();render()}
+function finishLevel(L){
+  S.done[L.id]=true;S.unlocked=Math.max(S.unlocked,Math.min(9,L.id+1));
+  if(!S.badges.includes(L.badge))S.badges.push(L.badge);
+  award('lvl'+L.id,L.boss?50:20);save();
+}
+function canAdvance(st){
+  const ok={ok:true};
+  switch(st.type){
+   case 'info':case 'stmt':return ok;
+   case 'think':return S.thinkSaved?ok:{msg:'Save your independent thinking first.'};
+   case 'ai':return S.ai.used.length>=2?ok:{msg:'Try at least two prompts first.'};
+   case 'compare':return S.rev.rq.trim().length>2?ok:{msg:'Write your research question on the right first.'};
+   case 'reflect':return REFQ.every(r=>(S.refl[r.id]||'').trim().length>2)?ok:{msg:'Answer all eight questions with at least a few words.'};
+   case 'bossCompare':return ok;
+   default:return T.solved?ok:{msg:'Complete the challenge first. Use the hint if you need it.'};
+  }
+}
+const A={
+ home(){go('map',null,null)},
+ summary(){go('summary')},
+ reset(){CONF='reset';render()},
+ resetyes(){S=fresh();save();go('map')},
+ cancel(){CONF=null;render()},
+ start(d){const id=+d.l;if(id>S.unlocked){toast('Finish the previous level first.');return}
+  if((id===7||id===8)&&!S.thinkSaved){toast('Complete Level 6 (THINK) first.');return}
+  go('level',id,0)},
+ back(){if(S.st>0)go('level',S.lv,S.st-1)},
+ next(){
+  const st=cur();const c=canAdvance(st);
+  if(!c.ok){toast(c.msg);return}
+  const L=curLevel();
+  if(st.type==='compare')award(key(),10);
+  if(st.type==='reflect')award(key(),20);
+  if(st.type==='stmt'){award(key(),10);}
+  if(S.st===L.steps.length-1){finishLevel(L);go('level',S.lv,L.steps.length);return}
+  go('level',S.lv,S.st+1)},
+ hint(){T.hint=!T.hint;render()},
+ hot(d){const i=+d.i;if(!T.found.includes(i)){T.found.push(i);award(key()+':h'+i,4);const st=cur();if(T.found.length===st.hot.length){T.solved=true;toast('Case solved, Detective! 🕵️')}}render()},
+ pick(d){const st=cur(),i=+d.i,o=st.options[i];
+  if(o.ok){T.solved=true;award(key(),T.tries?5:10);T.fb='✅ '+o.fb;T.fbOk=true;if(st.bossId)S.boss[st.bossId]=st.bossText||o.t.replace(/^"|"$/g,'');save()}
+  else{T.wrong.push(i);T.tries++;T.fb='🤔 Not quite. '+o.fb+' Try another answer!';T.fbOk=false}
+  T.focusFb=true;render()},
+ tog(d){const i=+d.i;T.sel=T.sel||[];const k=T.sel.indexOf(i);k>=0?T.sel.splice(k,1):T.sel.push(i);render()},
+ chk(){const st=cur(),sel=T.sel||[];
+  const okIdx=st.options.map((o,i)=>o.ok?i:-1).filter(i=>i>=0);
+  const wrongSel=sel.filter(i=>!st.options[i].ok),missed=okIdx.filter(i=>!sel.includes(i));
+  if(!wrongSel.length&&!missed.length&&sel.length){T.solved=true;T.fbOk=true;T.fb='✅ Perfect! You found them all.<ul>'+okIdx.map(i=>'<li>'+st.options[i].fb+'</li>').join('')+'</ul>';award(key(),T.tries?5:10)}
+  else{T.tries++;T.fbOk=false;T.fb='🤔 Not quite yet. '+(okIdx.length-missed.length)+' of '+okIdx.length+' correct choices selected.'+(wrongSel.length?'<br><b>Reconsider:</b><ul>'+wrongSel.map(i=>'<li>'+st.options[i].t+': '+st.options[i].fb+'</li>').join('')+'</ul>':'')+(missed.length?'<br>Something helpful is still missing.':'')}
+  T.focusFb=true;render()},
+ cls(d){const st=cur(),i=+d.i,c=+d.c;if(st.items[i].ans===c){T.ans[i]=c;if(Object.keys(T.ans).length===st.items.length){T.solved=true;award(key(),T.anyWrong?5:10)}}else{(T.wr[i]=T.wr[i]||[]).push(c);T.anyWrong=true}render()},
+ up(d){const i=+d.i;if(i>0){const x=T.list.splice(i,1)[0];T.list.splice(i-1,0,x);render()}},
+ down(d){const i=+d.i;if(i<T.list.length-1){const x=T.list.splice(i,1)[0];T.list.splice(i+1,0,x);render()}},
+ rm(d){const k=T.rm.indexOf(d.id);k>=0?T.rm.splice(k,1):T.rm.push(d.id);render()},
+ ochk(){const st=cur();T.checks++;
+  const kept=T.list.filter(id=>!T.rm.includes(id));
+  const correct=st.items.filter(i=>i.pos!=null).sort((a,b)=>a.pos-b.pos).map(i=>i.id);
+  const dist=kept.filter(id=>st.items.find(i=>i.id===id).pos==null).length;
+  const lost=T.rm.filter(id=>st.items.find(i=>i.id===id).pos!=null).length;
+  const inPlace=correct.filter((id,i)=>kept[i]===id).length;
+  if(!dist&&!lost&&kept.join()===correct.join()){T.solved=true;T.fbOk=true;T.fb='✅ Perfect structure! Every part has a job, and the distractors are gone.';award(key(),T.checks>1?10:20)}
+  else{T.fbOk=false;T.fb='🤔 '+inPlace+' of '+correct.length+' parts are in the right place.'+(dist?' '+dist+' silly distractor'+(dist>1?'s are':' is')+' still in your plan.':'')+(lost?' You removed '+lost+' useful part'+(lost>1?'s':'')+'.':'')+' Think: how does the audience get from start to finish?'}
+  T.focusFb=true;render()},
+ oshow(){const st=cur();const correct=st.items.filter(i=>i.pos!=null).sort((a,b)=>a.pos-b.pos).map(i=>i.id);const dist=st.items.filter(i=>i.pos==null).map(i=>i.id);T.list=correct.concat(dist);T.rm=dist;T.solved=true;T.fbOk=true;T.fb='Here is the model order. Read why each part matters below, then replay the level for full points.';render()},
+ wchk(){const st=cur(),v=(S.w[st.id]!=null?S.w[st.id]:st.original||'');const miss=[];
+  if(words(v)<st.minWords)miss.push('Write at least '+st.minWords+' words (you have '+words(v)+').');
+  if(st.original&&v.trim()===st.original.trim())miss.push('Change the original text. Make it better!');
+  (st.must||[]).forEach(m=>{if(!m[0].test(v))miss.push(m[1])});
+  if(miss.length){T.fbOk=false;T.fb='🤔 Almost. '+miss.join(' ')}
+  else{T.solved=true;T.fbOk=true;T.fb='✅ Well done! Compare your version with the model below. Different is fine if it does the same job.';award(key(),15);if(st.bossId){S.boss[st.bossId]=v.trim();save()}}
+  T.focusFb=true;render()},
+ topic(d){if(S.thinkSaved)return;S.topic=d.id;S.customTopic='';save();render()},
+ chip(d){const ta=document.querySelector('[data-f="'+d.t+'"]');if(!ta||ta.readOnly)return;const v=ta.value;ta.value=(v&&!/\s$/.test(v)?v+' ':v)+d.s+' ';ta.focus();setPath(d.t,ta.value)},
+ savethink(){
+  const empty=THINKF.filter(f=>(S.think[f.id]||'').trim().length<3).map(f=>f.label.split('.')[0]);
+  if(!topicObj()){toast('Choose a topic first.');return}
+  if(empty.length){toast('Please write something for question(s): '+empty.join(', '));return}
+  S.thinkSaved=true;S.thinkOriginal=Object.assign({},S.think);award('think',20);save();toast('Saved and locked. Your brain did the work! 🧠');render()},
+ redo(){CONF='redo';render()},
+ redoyes(){CONF=null;S.thinkSaved=false;S.thinkOriginal=null;S.think=fresh().think;S.rev={rq:'',arg:'',ev:''};S.refl={};S.stmt='';S.ai={used:[],notes:{}};save();render()},
+ copythink(){const t=THINKF.map(f=>f.label+'\n'+(S.think[f.id]||'')).join('\n\n');copy('TOPIC: '+topicName()+'\n\n'+t)},
+ aip(d){if(!S.ai.used.includes(d.id)){S.ai.used.push(d.id);award('ai'+d.id,d.id==='trap'?0:5);save()}render();T.focusFb=false},
+ copyorig(){const o=S.thinkOriginal||S.think;S.rev={rq:o.rq,arg:o.arg,ev:o.ev};save();render()},
+ regen(){S.stmt=genStmt();save();render()},
+ copystmt(){copy(S.stmt||genStmt())},
+ dlstmt(){download('my-ai-use-statement-draft.txt',S.stmt||genStmt())},
+ copyall(){copy(exportText())},
+ dlall(){download('my-oral-presentation-quest.txt',exportText())}
+};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const f=A[b.dataset.a];if(f)f(b.dataset,b)});
+document.addEventListener('input',e=>{const p=e.target.dataset&&e.target.dataset.f;if(p){setPath(p,e.target.value);if(p==='customTopic'&&e.target.value.trim()){S.topic='';save()}}});
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.ck;if(k){S.check[k]=e.target.checked;save();updateReady()}});
+/* drag and drop for the ordering step */
+document.addEventListener('dragstart',e=>{const li=e.target.closest&&e.target.closest('[data-drag]');if(li){T.drag=+li.dataset.drag;try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain','x')}catch(_){}}});
+document.addEventListener('dragover',e=>{if(e.target.closest&&e.target.closest('[data-drag]'))e.preventDefault()});
+document.addEventListener('drop',e=>{const li=e.target.closest&&e.target.closest('[data-drag]');if(li&&T.drag!=null&&T.list){e.preventDefault();const to=+li.dataset.drag;const x=T.list.splice(T.drag,1)[0];T.list.splice(to,0,x);T.drag=null;render()}});
+
+resetT();
+if(S.view==='level'&&!S.lv)S.view='map';
+render();
+</script>
+</body>
+</html>
